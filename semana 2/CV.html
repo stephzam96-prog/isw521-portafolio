@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae | Stephanie Zamora</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #0ea5e9;
+            --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            --accent-light: rgba(14, 165, 233, 0.1);
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        /* CV Container */
+        .cv-container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Left Column (Sidebar) */
+        .sidebar {
+            background-color: #0b0f19;
+            padding: 40px 30px;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .profile-section {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar-container {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            padding: 4px;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative initials inside avatar */
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #0b0f19;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            background-image: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            margin-top: 5px;
+        }
+
+        .profile-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Sidebar Sections */
+        .sidebar-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar-section-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 6px;
+            width: fit-content;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background-color: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Languages & Interests */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .badge:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background-color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* Right Column (Main Content) */
+        .main-content {
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Section Container */
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--border);
+        }
+
+        .section-title svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+
+        .profile-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* Timeline Items */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background-color: var(--bg-tertiary);
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .timeline-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-company {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            background-color: var(--bg-tertiary);
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-list {
+            margin-top: 6px;
+            padding-left: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .timeline-list li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #172033;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 5px;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            background-color: var(--accent-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .cv-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <main class="cv-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Profile section -->
+                <div class="profile-section">
+                    <div class="avatar-container">
+                        <div class="avatar-placeholder">SZ</div>
+                    </div>
+                    <h1 class="profile-name">Stephanie Zamora</h1>
+                    <p class="profile-title">Ingeniería de Software</p>
+                </div>
+
+                <!-- Contact -->
+                <section class="sidebar-section">
+                    <h2 class="sidebar-section-title">Contacto</h2>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <!-- Email icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                            </svg>
+                            <span>stephzam96@gmail.com</span>
+                        </li>
+                        <li class="contact-item">
+                            <!-- Phone icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.181-4.158-6.982-6.982l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                            </svg>
+                            <span>+506 7091-3723</span>
+                        </li>
+                        <li class="contact-item">
+                            <!-- Location icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                            </svg>
+                            <span>Alajuela, Costa Rica</span>
+                        </li>
+                        <li class="contact-item">
+                            <!-- Link icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                            </svg>
+                            <span>linkedin.com/in/stephanie</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Skills -->
+                <section class="sidebar-section">
+                    <h2 class="sidebar-section-title">Habilidades</h2>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>HTML5 / CSS3 / JS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>PHP / Apache</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>SQL / MySQL</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Git / GitHub</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section class="sidebar-section">
+                    <h2 class="sidebar-section-title">Idiomas</h2>
+                    <div class="badge-container">
+                        <span class="badge">Español (Nativo)</span>
+                        <span class="badge">Inglés (B2 - Avanzado)</span>
+                    </div>
+                </section>
+
+                <!-- Intereses -->
+                <section class="sidebar-section">
+                    <h2 class="sidebar-section-title">Intereses</h2>
+                    <div class="badge-container">
+                        <span class="badge">Desarrollo Web</span>
+                        <span class="badge">Inteligencia Artificial</span>
+                        <span class="badge">Videojuegos</span>
+                        <span class="badge">Diseño UI/UX</span>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Profile summary -->
+                <section class="section">
+                    <h2 class="section-title">
+                        <!-- User icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                        Perfil Profesional
+                    </h2>
+                    <p class="profile-desc">
+                        Estudiante entusiasta de Ingeniería de Software con una fuerte pasión por el desarrollo web front-end y back-end. Dedicada a crear aplicaciones web funcionales, accesibles y estéticamente atractivas utilizando tecnologías modernas. Habilidad para el trabajo en equipo, resolución de problemas complejos y aprendizaje rápido de nuevas herramientas.
+                    </p>
+                </section>
+
+                <!-- Experience -->
+                <section class="section">
+                    <h2 class="section-title">
+                        <!-- Briefcase icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 0 1 3.75 18.4V14.15m16.5 0c0-1.224-1.007-2.228-2.26-2.127l-3.57.29a2.25 2.25 0 0 1-2.348-2.23v-.08a2.25 2.25 0 0 0-2.25-2.25h-1.5a2.25 2.25 0 0 0-2.25 2.25v.08a2.25 2.25 0 0 1-2.347 2.23l-3.57-.29A2.228 2.228 0 0 0 3.75 14.15m16.5 0v1.5a2.25 2.25 0 0 1-2.25 2.25h-13.5A2.25 2.25 0 0 1 3.75 15.65v-1.5m0 0a2.25 2.25 0 0 1 2.25-2.25h12a2.25 2.25 0 0 1 2.25 2.25Z" />
+                        </svg>
+                        Experiencia Laboral
+                    </h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <h3 class="timeline-role">Desarrollador Web (Proyectos Académicos)</h3>
+                                <span class="timeline-date">2024 - Presente</span>
+                            </div>
+                            <span class="timeline-company">UTN (Universidad Técnica Nacional)</span>
+                            <p class="timeline-desc">Diseño e implementación de diversas aplicaciones web utilizando HTML, CSS, JavaScript y PHP. Integración de bases de datos relacionales MySQL.</p>
+                            <ul class="timeline-list">
+                                <li>Desarrollo de interfaces responsivas y accesibles.</li>
+                                <li>Configuración de servidores locales (Apache, XAMPP) para testing y despliegue local.</li>
+                                <li>Control de versiones colaborativo a través de Git y GitHub.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <h3 class="timeline-role">Asistente Técnico de IT (Práctica / Soporte)</h3>
+                                <span class="timeline-date">2023 - 2024</span>
+                            </div>
+                            <span class="timeline-company">Soporte Técnico Zamora</span>
+                            <p class="timeline-desc">Apoyo en soporte técnico para hardware y software, mantenimiento preventivo de equipos y configuración de redes locales.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="section">
+                    <h2 class="section-title">
+                        <!-- Academic cap icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.231-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A5.906 5.906 0 0 1 1.15 7.151l1.022-2.044a5.906 5.906 0 0 1 7.905-2.659l2.87 1.436a5.906 5.906 0 0 1 3.106 5.178v1.082m-11.83 2.043L3.75 10.5M20.25 10.5l-3.75-2.043m3.75 2.043v11.25m-18-11.25c.062.007.125.007.187.007A2.25 2.25 0 0 0 5.25 8.25V6.75m13.5 0a2.25 2.25 0 0 1 2.25 2.25v1.5M6 10.5v11.25m12-11.25v11.25" />
+                        </svg>
+                        Educación
+                    </h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <h3 class="timeline-role">Diplomado / Bachillerato en Ingeniería de Software</h3>
+                                <span class="timeline-date">2022 - En Curso</span>
+                            </div>
+                            <span class="timeline-company">Universidad Técnica Nacional (UTN)</span>
+                            <p class="timeline-desc">Enfoque en desarrollo de sistemas, bases de datos, redes, metodologías ágiles de software y arquitectura web.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects -->
+                <section class="section">
+                    <h2 class="section-title">
+                        <!-- Code icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                        </svg>
+                        Proyectos Destacados
+                    </h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <h3 class="project-title">Sistema de Gestión de Clientes</h3>
+                            <p class="project-desc">Aplicación web completa que permite registrar, buscar y actualizar información de clientes con almacenamiento seguro en base de datos.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">MySQL</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3 class="project-title">Página Web de Portafolio Personal</h3>
+                            <p class="project-desc">Diseño y desarrollo de un sitio web responsivo y dinámico para mostrar proyectos y hoja de vida académica.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer class="cv-footer">
+            <p>&copy; 2026 Stephanie Zamora. Diseñado con fines académicos - UTN.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
