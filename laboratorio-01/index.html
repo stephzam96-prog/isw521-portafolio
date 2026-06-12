@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UNUK Agencia de Viajes — Somos creadores de experiencias. Viajes a Guatemala, Perú, México y Colombia." />
+  <title>UNUK | Somos creadores de experiencias</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER — Logo y navegación principal
+  ═══════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="logo">
+      <img src="img/logo-unuk.jpg" alt="UNUK Agencia de Viajes" />
+    </div>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#destinos">Destinos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Cambiar entre modo claro y oscuro">🌙</button>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       MAIN — Todo el contenido principal
+  ═══════════════════════════════════════ -->
+  <main>
+
+    <!-- SECCIÓN 1: Hero -->
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <h1>Somos creadores de experiencias</h1>
+        <p>Guatemala · Perú · México · Colombia</p>
+        <a href="#destinos" class="btn-cta">Conocé nuestros destinos</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: Destinos -->
+    <section id="destinos" class="seccion-destinos">
+      <h2>Nuestros Destinos</h2>
+      <p class="seccion-subtitulo">Cada viaje es una historia que vas a querer contar</p>
+      <div class="destinos-grid">
+
+        <article class="destino-card">
+          <img src="img/destino-guatemala.jpg" alt="Lago Atitlán, Guatemala" />
+          <div class="card-info">
+            <h3>Guatemala</h3>
+            <p>Cultura maya, volcanes y colores que no vas a olvidar.</p>
+          </div>
+        </article>
+
+        <article class="destino-card">
+          <img src="img/destino-peru.jpg" alt="Machu Picchu al amanecer, Perú" />
+          <div class="card-info">
+            <h3>Perú</h3>
+            <p>Machu Picchu, gastronomía y una historia milenaria.</p>
+          </div>
+        </article>
+
+        <article class="destino-card">
+          <img src="img/destino-mexico.jpg" alt="Chichén Itzá, México" />
+          <div class="card-info">
+            <h3>México</h3>
+            <p>De la Ciudad de México a las playas del Caribe.</p>
+          </div>
+        </article>
+
+        <article class="destino-card">
+          <img src="img/destino-colombia.jpg" alt="Centro histórico de Cartagena, Colombia" />
+          <div class="card-info">
+            <h3>Colombia</h3>
+            <p>Cartagena, café, flores y gente que te hace sentir en casa.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: Nosotros -->
+    <section id="nosotros" class="seccion-nosotros">
+      <div class="nosotros-contenido">
+        <h2>¿Quiénes somos?</h2>
+        <p>UNUK es una agencia de viajes costarricense que nació con una misión clara: crear experiencias que transformen. Planificamos cada detalle para que vos solo tengas que disfrutar.</p>
+        <p>Nos especializamos en viajes a Guatemala, Perú, México y Colombia, con paquetes diseñados para grupos y familias.</p>
+        <aside class="redes-sociales" aria-label="Redes sociales de UNUK">
+          <h3>Seguinos en redes</h3>
+          <div class="redes-links">
+            <a href="https://instagram.com/viajaunuk" target="_blank" rel="noopener noreferrer" aria-label="Instagram de UNUK (abre en nueva pestaña)">Instagram</a>
+            <a href="https://tiktok.com/@viajaunuk" target="_blank" rel="noopener noreferrer" aria-label="TikTok de UNUK (abre en nueva pestaña)">TikTok</a>
+            <a href="https://facebook.com/viajaunuk" target="_blank" rel="noopener noreferrer" aria-label="Facebook de UNUK (abre en nueva pestaña)">Facebook</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: ¿Por qué elegirnos? -->
+    <section id="ventajas" class="seccion-ventajas">
+      <h2>¿Por qué viajar con UNUK?</h2>
+      <div class="ventajas-flex">
+
+        <article class="ventaja">
+          <span class="ventaja-icono" aria-hidden="true">✈️</span>
+          <h3>Todo planificado</h3>
+          <p>Nos encargamos de cada detalle para que vos solo disfrutes.</p>
+        </article>
+
+        <article class="ventaja">
+          <span class="ventaja-icono" aria-hidden="true">🤝</span>
+          <h3>Atención personalizada</h3>
+          <p>Te acompañamos desde el primer mensaje hasta que volvés a casa.</p>
+        </article>
+
+        <article class="ventaja">
+          <span class="ventaja-icono" aria-hidden="true">📸</span>
+          <h3>Experiencias únicas</h3>
+          <p>Más que turismo: momentos que se convierten en recuerdos.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: Contacto -->
+    <section id="contacto" class="seccion-contacto">
+      <h2>¿Listo para viajar?</h2>
+      <p>Contanos a dónde querés ir y nosotros nos encargamos del resto.</p>
+      <div class="form-wrapper">
+        <div class="form-grupo">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" autocomplete="name" />
+        </div>
+        <div class="form-grupo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" autocomplete="email" />
+        </div>
+        <div class="form-grupo">
+          <label for="destino">Destino de interés</label>
+          <select id="destino" name="destino">
+            <option value="">Seleccioná un destino</option>
+            <option value="guatemala">Guatemala</option>
+            <option value="peru">Perú</option>
+            <option value="mexico">México</option>
+            <option value="colombia">Colombia</option>
+          </select>
+        </div>
+        <button type="button" id="btn-guardar">Guardar mi interés</button>
+        <p id="mensaje-confirmacion" class="confirmacion" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-contenido">
+      <p><strong>UNUK</strong> — Somos creadores de experiencias</p>
+      <p>@viajaunuk · Instagram · TikTok · Facebook</p>
+    </div>
+    <p class="copyright">© 2026 UNUK Agencia de Viajes. Costa Rica.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
