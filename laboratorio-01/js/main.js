@@ -55,11 +55,19 @@ if (interesGuardado) {
   // Necesitamos convertir el string JSON de vuelta a objeto JS
   const datos = JSON.parse(interesGuardado);
   // JSON.parse hace lo inverso de JSON.stringify:
-  // convierte '{"nombre":"Ana","destino":"Perú"}' → { nombre:"Ana", destino:"Perú" }
- 
+  // convierte '{"nombre":"Ana","destino":"peru"}' → { nombre:"Ana", destino:"peru" }
+
+  // Mapa para convertir el value del select al nombre legible
+  const nombresDestino = {
+    guatemala: 'Guatemala',
+    peru:      'Perú',
+    mexico:    'México',
+    colombia:  'Colombia',
+  };
+
   mensajeConf.textContent =
     `👋 ¡Bienvenido/a de vuelta, ${datos.nombre}! ` +
-    `Tu interés en ${datos.destino} sigue guardado.`;
+    `Tu interés en ${nombresDestino[datos.destino] || datos.destino} sigue guardado.`;
   // Usamos template literals para insertar los valores guardados
 }
  
