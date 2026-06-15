@@ -9,7 +9,7 @@
    Los declaramos con const porque la referencia al
    elemento nunca va a cambiar.
    ══════════════════════════════════════════════════════ */
-const botonTema   = document.getElementById('theme-toggle');
+const botonTema   = document.getElementById('toggle-tema');
 const inputNombre = document.getElementById('nombre');
 const inputEmail  = document.getElementById('email');
 const selectDest  = document.getElementById('destino');
