@@ -38,9 +38,11 @@ if (temaGuardado === 'oscuro') {
   document.body.classList.add('modo-oscuro');
   // Agrega la clase al <body>, lo que activa las variables
   // CSS de modo oscuro definidas en styles.css
- 
+
   botonTema.textContent = '☀️';
   // Cambiamos el ícono a sol (para indicar "clic aquí para modo claro")
+  botonTema.setAttribute('aria-pressed', 'true');
+  // aria-pressed comunica el estado del toggle a lectores de pantalla
 }
 // Si temaGuardado es null (primera visita) o 'claro',
 // no hacemos nada — el modo claro es el default del CSS.
@@ -91,11 +93,13 @@ botonTema.addEventListener('click', () => {
   if (modoOscuroActivo) {
     // La clase quedó → modo oscuro activo
     botonTema.textContent = '☀️';           // sol = "podés volver al modo claro"
+    botonTema.setAttribute('aria-pressed', 'true');
     localStorage.setItem('tema-unuk', 'oscuro');
     // Guardamos bajo la clave 'tema-unuk' el string 'oscuro'
   } else {
     // La clase fue quitada → modo claro activo
     botonTema.textContent = '🌙';           // luna = "podés ir al modo oscuro"
+    botonTema.setAttribute('aria-pressed', 'false');
     localStorage.setItem('tema-unuk', 'claro');
   }
 });
