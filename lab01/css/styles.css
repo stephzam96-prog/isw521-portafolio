@@ -733,3 +733,50 @@ body.modo-oscuro {
 .btn-menu {
   display: none;
 }
+
+/* =============================================
+   ACCESIBILIDAD — Ajustes finales WCAG 2.1
+============================================= */
+
+/* Enlace para saltar el menú con teclado.
+   Está oculto visualmente pero aparece cuando
+   el usuario llega a él con la tecla Tab */
+.saltar-contenido {
+  position: absolute;
+  top: -100px;           /* Escondido fuera de la pantalla */
+  left: 0;
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  padding: 10px 20px;
+  font-weight: 600;
+  z-index: 200;
+  transition: top 0.2s;
+}
+
+/* Cuando el usuario llega con Tab, aparece arriba */
+.saltar-contenido:focus {
+  top: 0;
+}
+
+/* Focus visible en el botón de enviar del formulario */
+.btn-principal[type="submit"]:focus {
+  outline: 2px solid var(--color-primario-oscuro);
+  outline-offset: 4px;
+}
+
+/* Me aseguro que todos los inputs muestren foco visible
+   por si algún navegador lo quita por defecto */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 3px;
+}
+
+/* Las tarjetas de destino también son navegables con Tab
+   por los botones que tienen adentro — les agrego foco visible */
+.btn-tarjeta:focus {
+  outline: 2px solid var(--color-primario-oscuro);
+  outline-offset: 4px;
+}
