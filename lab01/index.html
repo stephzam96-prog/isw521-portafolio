@@ -154,8 +154,163 @@
   </main>
 
 
-  <!-- Footer vacío, lo completamos en el siguiente step -->
-  <footer>
+  
+<!-- =========================================
+         GALERÍA — Fotos de los destinos en cuadrícula
+         También uso CSS Grid aquí
+    ========================================= -->
+    <section id="galeria" class="seccion-galeria">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Galería de experiencias</h2>
+        <p class="subtitulo-seccion">Momentos reales de nuestros viajeros</p>
+
+        <!-- Grid de fotos, en el CSS le digo cuántas columnas tiene -->
+        <div class="grid-galeria">
+          <img src="assets/gallery1.jpg" alt="Viajeros explorando ruinas mayas en Guatemala" class="foto-galeria">
+          <img src="assets/gallery2.jpg" alt="Amanecer sobre Machu Picchu en Perú" class="foto-galeria">
+          <img src="assets/gallery3.jpg" alt="Grupo nadando en un cenote en México" class="foto-galeria">
+          <img src="assets/gallery4.jpg" alt="Calles históricas del centro de Cartagena" class="foto-galeria">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         VIDEO — Video promocional de UNUK
+         El atributo controls muestra los botones de play, volumen, etc.
+         El poster es la imagen que aparece antes de darle play
+    ========================================= -->
+    <section id="video" class="seccion-video" aria-label="Video promocional de UNUK">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Viví la experiencia UNUK</h2>
+        <p class="subtitulo-seccion">Así se vive un viaje con nosotros</p>
+
+        <div class="video-contenedor">
+          <video
+            controls
+            poster="assets/hero.jpg"
+            aria-label="Video promocional de UNUK mostrando destinos de viaje"
+            class="video-principal">
+            <source src="assets/video1.mp4" type="video/mp4">
+            <source src="assets/video2.mp4" type="video/mp4">
+            <!-- Este mensaje solo aparece si el navegador no soporta video HTML5 -->
+            Tu navegador no puede reproducir este video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         CONTACTO — Formulario de consultas
+         El nombre se guarda en localStorage con script.js
+    ========================================= -->
+    <section id="contacto" class="seccion-contacto">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">¡Hagamos tu viaje realidad!</h2>
+        <p class="subtitulo-seccion">Completá el formulario y te contactamos a la brevedad</p>
+
+        <form class="formulario" id="formContacto" novalidate>
+
+          <div class="campo-form">
+            <label for="nombre">Nombre completo</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre"
+              autocomplete="name"
+              aria-describedby="nombre-ayuda"
+              required>
+            <!-- aria-describedby conecta este texto de ayuda con el campo de arriba -->
+            <span id="nombre-ayuda" class="ayuda-campo">
+              Tu nombre se guarda automáticamente si cerrás la página.
+            </span>
+          </div>
+
+          <div class="campo-form">
+            <label for="email">Correo electrónico</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="tucorreo@ejemplo.com"
+              autocomplete="email"
+              required>
+          </div>
+
+          <div class="campo-form">
+            <label for="destino">¿A dónde querés ir?</label>
+            <select id="destino" name="destino" required>
+              <option value="" disabled selected>Seleccioná un destino</option>
+              <option value="guatemala">Guatemala</option>
+              <option value="peru">Perú</option>
+              <option value="mexico">México</option>
+              <option value="colombia">Colombia</option>
+            </select>
+          </div>
+
+          <div class="campo-form">
+            <label for="mensaje">¿Alguna consulta en especial?</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="4"
+              placeholder="Contanos qué tenés en mente para tu viaje..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-principal">Enviar consulta</button>
+
+          <!-- Este párrafo aparece después de enviar, lo maneja script.js -->
+          <!-- El hidden lo oculta, el aria-live avisa al lector de pantalla cuando aparece -->
+          <p class="mensaje-enviado" id="mensajeEnviado" aria-live="polite" hidden>
+            ✅ ¡Tu mensaje fue enviado! Te contactamos pronto.
+          </p>
+
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER — Pie de página con redes sociales
+  ========================================= -->
+  <footer class="footer">
+    <div class="contenedor">
+
+      <!-- Fila superior: logo y enlaces a redes -->
+      <div class="footer-top">
+        <img src="assets/logo.png" alt="Logo de UNUK agencia de viajes" class="footer-logo">
+
+        <!-- nav adentro del footer para las redes, tiene su propio aria-label -->
+        <nav aria-label="Redes sociales de UNUK">
+          <ul class="redes-lista" role="list">
+            <li>
+              <a href="https://www.instagram.com/viajaunuk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de UNUK, abre en nueva pestaña">
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@viajaunuk" target="_blank" rel="noopener noreferrer" aria-label="TikTok de UNUK, abre en nueva pestaña">
+                TikTok
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/viajaunuk" target="_blank" rel="noopener noreferrer" aria-label="Facebook de UNUK, abre en nueva pestaña">
+                Facebook
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <p class="footer-copy">
+        &copy; 2025 UNUK. Todos los derechos reservados. Agencia de viajes costarricense.
+      </p>
+
+    </div>
   </footer>
 
   <script src="js/script.js"></script>
