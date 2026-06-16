@@ -112,3 +112,83 @@ body.modo-oscuro {
   text-align: center;
   margin-bottom: 40px;
 }
+
+/* =============================================
+   NAVBAR — Barra de navegación
+   Uso Flexbox para poner el logo, los links
+   y el botón en fila y bien distribuidos
+============================================= */
+.header {
+  background-color: var(--color-fondo);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;   /* Se queda fija arriba mientras scrolleás */
+  top: 0;
+  z-index: 100;       /* Que quede por encima del resto del contenido */
+}
+
+.navbar {
+  display: flex;                  /* Activo Flexbox */
+  align-items: center;            /* Alinea todo verticalmente al centro */
+  justify-content: space-between; /* Logo a la izquierda, links en medio, botón a la derecha */
+  max-width: var(--ancho-contenedor);
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+/* El logo no crece ni se encoge, mantiene su tamaño */
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+/* La lista de links también es Flexbox para ponerlos en fila */
+.nav-lista {
+  display: flex;
+  gap: 32px;   /* Espacio entre cada link */
+}
+
+.nav-link {
+  color: var(--color-texto);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 4px 0;
+  /* La línea de abajo aparece en hover, empieza con ancho 0 */
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+/* Cuando pasás el mouse por un link aparece la línea teal abajo */
+.nav-link:hover {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-primario);
+}
+
+/* Indicador de foco para navegación con teclado — requerido por WCAG */
+.nav-link:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Botón de modo oscuro */
+.btn-modo-oscuro {
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  white-space: nowrap;   /* Que no parta el texto en dos líneas */
+}
+
+.btn-modo-oscuro:hover {
+  background-color: var(--color-primario-oscuro);
+}
+
+.btn-modo-oscuro:focus {
+  outline: 2px solid var(--color-primario-oscuro);
+  outline-offset: 4px;
+}
