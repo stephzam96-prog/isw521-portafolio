@@ -192,3 +192,84 @@ body.modo-oscuro {
   outline: 2px solid var(--color-primario-oscuro);
   outline-offset: 4px;
 }
+
+/* =============================================
+   HERO — La sección grande del inicio
+   La imagen de fondo ocupa toda la pantalla
+   y encima va el texto con el slogan
+============================================= */
+.hero {
+  /* La imagen de fondo. Como styles.css está en la carpeta css/,
+     tengo que subir un nivel con ../ para llegar a assets/ */
+  background-image: url('../assets/hero.jpg');
+  background-size: cover;      /* La imagen cubre todo el espacio sin distorsionarse */
+  background-position: center; /* La parte central de la foto siempre se ve */
+  background-repeat: no-repeat;
+
+  /* Que ocupe toda la altura de la pantalla */
+  min-height: 100vh;
+
+  /* Flexbox para centrar el contenido dentro del hero */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Oscurezco la imagen de fondo para que el texto blanco se lea bien */
+  /* Esto es como poner un vidrio oscuro encima de la foto */
+  position: relative;
+}
+
+/* El overlay oscuro — va entre la imagen y el texto */
+.hero::before {
+  content: '';                /* Necesario para que el pseudo-elemento exista */
+  position: absolute;
+  inset: 0;                   /* Equivale a top/right/bottom/left: 0 */
+  background-color: rgba(0, 0, 0, 0.45); /* Negro con 45% de opacidad */
+}
+
+/* El contenido del hero (texto y botón) va encima del overlay */
+.hero-contenido {
+  position: relative;         /* Así queda por encima del ::before */
+  text-align: center;
+  color: var(--color-texto-claro);
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.hero-titulo {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  /* Sombra en el texto para que se lea incluso sobre fotos claras */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitulo {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Botón principal — lo defino acá y lo reutilizo en otras secciones */
+.btn-principal {
+  display: inline-block;
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  padding: 14px 36px;
+  border-radius: var(--radio-borde);
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-principal:hover {
+  background-color: var(--color-primario-oscuro);
+  transform: translateY(-2px); /* Sube un poquito al hacer hover */
+}
+
+.btn-principal:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
