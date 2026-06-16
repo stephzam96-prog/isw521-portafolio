@@ -1,0 +1,114 @@
+/* =============================================
+   RESET — Borro los estilos que el navegador
+   pone por defecto, para empezar desde cero
+============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* box-sizing hace que el padding no agrande el tamaño del elemento */
+}
+
+/* Le digo que el scroll sea suave cuando hago clic en los links del menú */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fuente general de toda la página */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+}
+
+/* Quito el subrayado de los enlaces y heredo el color del padre */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Las imágenes no se salen de su contenedor */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Quito el estilo de lista (los puntitos) de todos los ul */
+ul {
+  list-style: none;
+}
+
+
+/* =============================================
+   VARIABLES DE COLOR
+   Las defino una vez acá y las reutilizo
+   en todo el CSS con var(--nombre)
+============================================= */
+:root {
+  /* Colores corporativos de UNUK — teal/verde azulado */
+  --color-primario: #0d9488;       /* teal principal */
+  --color-primario-oscuro: #0f766e; /* teal más oscuro para hover */
+  --color-primario-claro: #ccfbf1;  /* teal muy suave para fondos */
+
+  /* Colores de texto */
+  --color-texto: #1a1a1a;          /* casi negro, más suave que #000 */
+  --color-texto-suave: #555555;    /* gris para textos secundarios */
+  --color-texto-claro: #ffffff;    /* blanco para texto sobre fondo oscuro */
+
+  /* Colores de fondo */
+  --color-fondo: #ffffff;
+  --color-fondo-gris: #f4f4f4;     /* gris muy claro para secciones alternadas */
+
+  /* Bordes y sombras */
+  --sombra-tarjeta: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --radio-borde: 8px;              /* para esquinas redondeadas */
+
+  /* Espaciados que voy a repetir mucho */
+  --espaciado-seccion: 80px;
+  --ancho-contenedor: 1100px;
+}
+
+
+/* =============================================
+   MODO OSCURO
+   Cuando el body tiene la clase "modo-oscuro"
+   (que la agrega script.js) cambian los colores
+============================================= */
+body.modo-oscuro {
+  --color-texto: #f0f0f0;
+  --color-texto-suave: #bbbbbb;
+  --color-fondo: #121212;
+  --color-fondo-gris: #1e1e1e;
+}
+
+
+/* =============================================
+   CONTENEDOR — Limita el ancho del contenido
+   y lo centra en pantallas grandes
+============================================= */
+.contenedor {
+  max-width: var(--ancho-contenedor);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* =============================================
+   TÍTULOS DE SECCIÓN — Estilo compartido
+   para los h2 que aparecen en cada sección
+============================================= */
+.titulo-seccion {
+  font-size: 2rem;
+  color: var(--color-primario);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitulo-seccion {
+  font-size: 1rem;
+  color: var(--color-texto-suave);
+  text-align: center;
+  margin-bottom: 40px;
+}
