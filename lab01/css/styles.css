@@ -468,3 +468,131 @@ body.modo-oscuro {
   color: var(--color-texto-suave);
   line-height: 1.6;
 }
+
+/* =============================================
+   CONTACTO — Formulario de consultas
+   Centrado y con ancho máximo para que no
+   se estire demasiado en pantallas grandes
+============================================= */
+.seccion-contacto {
+  padding: var(--espaciado-seccion) 0;
+  background-color: var(--color-primario-claro);
+}
+
+.formulario {
+  max-width: 600px;
+  margin: 0 auto; /* Centra el formulario */
+}
+
+/* Cada campo del formulario (label + input juntos) */
+.campo-form {
+  display: flex;
+  flex-direction: column; /* El label arriba, el input abajo */
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.campo-form label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-texto);
+}
+
+/* Estilos compartidos para input, select y textarea */
+.campo-form input,
+.campo-form select,
+.campo-form textarea {
+  padding: 12px 14px;
+  border: 2px solid #cccccc;
+  border-radius: var(--radio-borde);
+  font-size: 0.95rem;
+  font-family: inherit; /* Hereda la fuente del body */
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  transition: border-color 0.2s;
+}
+
+/* Cuando el usuario hace clic en un campo, el borde se vuelve teal */
+.campo-form input:focus,
+.campo-form select:focus,
+.campo-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
+}
+
+.campo-form textarea {
+  resize: vertical; /* Solo se puede agrandar hacia abajo, no hacia los lados */
+}
+
+/* Texto de ayuda debajo del campo de nombre */
+.ayuda-campo {
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+}
+
+/* Mensaje de confirmación que aparece al enviar */
+.mensaje-enviado {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: var(--color-primario);
+  color: var(--color-texto-claro);
+  border-radius: var(--radio-borde);
+  text-align: center;
+  font-weight: 600;
+}
+
+
+/* =============================================
+   FOOTER — Pie de página
+============================================= */
+.footer {
+  background-color: var(--color-primario-oscuro);
+  color: var(--color-texto-claro);
+  padding: 48px 0 24px;
+}
+
+/* Fila superior: logo a la izquierda, redes a la derecha */
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.footer-logo {
+  height: 45px;
+  width: auto;
+}
+
+/* Links de redes sociales en fila */
+.redes-lista {
+  display: flex;
+  gap: 24px;
+}
+
+.redes-lista a {
+  color: var(--color-texto-claro);
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.redes-lista a:hover {
+  opacity: 1;
+}
+
+.redes-lista a:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Línea de copyright al fondo */
+.footer-copy {
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+}
