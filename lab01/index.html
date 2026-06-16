@@ -12,17 +12,149 @@
 
 <body>
 
-  <!-- Barra de navegación -->
-  <header>
-    <nav>
+  <!-- =========================================
+       MENÚ DE NAVEGACIÓN
+  ========================================= -->
+  <header class="header">
+    <nav class="navbar" aria-label="Menú principal">
+
+      <!-- Logo que al hacer clic lleva al inicio -->
+      <a href="#inicio" class="logo-link">
+        <img src="assets/logo.png" alt="Logo de UNUK agencia de viajes" class="logo">
+      </a>
+
+      <!-- Lista de enlaces del menú -->
+      <ul class="nav-lista" role="list">
+        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+        <li><a href="#destinos" class="nav-link">Destinos</a></li>
+        <li><a href="#galeria" class="nav-link">Galería</a></li>
+        <li><a href="#nosotros" class="nav-link">¿Por qué nosotros?</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <!-- Botón para modo oscuro, lo activa el archivo script.js -->
+      <button class="btn-modo-oscuro" id="btnModoOscuro" aria-label="Cambiar a modo oscuro">
+        🌙 Modo oscuro
+      </button>
+
     </nav>
   </header>
 
-  <!-- Contenido principal de la página -->
+
+  <!-- =========================================
+       CONTENIDO PRINCIPAL
+  ========================================= -->
   <main>
+
+    <!-- =========================================
+         HERO — La primera sección grande con el slogan
+    ========================================= -->
+    <section id="inicio" class="hero" aria-label="Bienvenida UNUK">
+      <div class="hero-contenido">
+        <h1 class="hero-titulo">Somos creadores de experiencias</h1>
+        <p class="hero-subtitulo">
+          Descubrí Latinoamérica con nosotros. Viajes a Guatemala, Perú, México y Colombia
+          diseñados para que cada momento cuente.
+        </p>
+        <!-- Este botón lleva directo a la sección de destinos -->
+        <a href="#destinos" class="btn-principal">Ver destinos</a>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         DESTINOS — Las 4 tarjetas de países
+         Uso CSS Grid para que queden en cuadrícula
+    ========================================= -->
+    <section id="destinos" class="seccion-destinos">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Nuestros destinos</h2>
+        <p class="subtitulo-seccion">Elegí tu próxima aventura</p>
+
+        <!-- Cada tarjeta es un article porque es contenido independiente -->
+        <div class="grid-destinos">
+
+          <article class="tarjeta-destino">
+            <img src="assets/gallery1.jpg" alt="Antigua Guatemala con volcán al fondo" class="tarjeta-img">
+            <div class="tarjeta-info">
+              <h3>Guatemala</h3>
+              <p>Mayas, volcanes y colores. La tierra que te enamora desde el primer día.</p>
+              <a href="#contacto" class="btn-tarjeta" aria-label="Consultar paquete a Guatemala">Consultar paquete</a>
+            </div>
+          </article>
+
+          <article class="tarjeta-destino">
+            <img src="assets/gallery2.jpg" alt="Machu Picchu en las montañas de Perú" class="tarjeta-img">
+            <div class="tarjeta-info">
+              <h3>Perú</h3>
+              <p>Machu Picchu, gastronomía única y paisajes que no tienen comparación.</p>
+              <a href="#contacto" class="btn-tarjeta" aria-label="Consultar paquete a Perú">Consultar paquete</a>
+            </div>
+          </article>
+
+          <article class="tarjeta-destino">
+            <img src="assets/gallery3.jpg" alt="Cenote azul turquesa en la Riviera Maya" class="tarjeta-img">
+            <div class="tarjeta-info">
+              <h3>México</h3>
+              <p>Playas de Cancún, cenotes y la cultura más rica de toda América.</p>
+              <a href="#contacto" class="btn-tarjeta" aria-label="Consultar paquete a México">Consultar paquete</a>
+            </div>
+          </article>
+
+          <article class="tarjeta-destino">
+            <img src="assets/gallery4.jpg" alt="Ciudad colorida de Cartagena de Indias" class="tarjeta-img">
+            <div class="tarjeta-info">
+              <h3>Colombia</h3>
+              <p>Cartagena, Medellín y cafetales. Colombia te sorprende en cada esquina.</p>
+              <a href="#contacto" class="btn-tarjeta" aria-label="Consultar paquete a Colombia">Consultar paquete</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         ¿POR QUÉ NOSOTROS? — Las ventajas de UNUK
+         Uso Flexbox para acomodar los tres bloques en fila
+    ========================================= -->
+    <section id="nosotros" class="seccion-nosotros">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">¿Por qué viajar con UNUK?</h2>
+        <p class="subtitulo-seccion">Somos creadores de experiencias, no solo vendedores de tiquetes</p>
+
+        <!-- Estos tres divs los pongo en fila con Flexbox en el CSS -->
+        <div class="flex-ventajas">
+
+          <div class="ventaja">
+            <!-- role="img" y aria-label explican el ícono a lectores de pantalla -->
+            <span class="icono-ventaja" role="img" aria-label="Ícono de corazón">❤️</span>
+            <h3>Experiencias personalizadas</h3>
+            <p>Cada viaje lo armamos según tus gustos, presupuesto y sueños. No hay dos viajes iguales.</p>
+          </div>
+
+          <div class="ventaja">
+            <span class="icono-ventaja" role="img" aria-label="Ícono de mapa">🗺️</span>
+            <h3>Conocemos los destinos</h3>
+            <p>Trabajamos con guías locales en cada país para darte una experiencia auténtica y segura.</p>
+          </div>
+
+          <div class="ventaja">
+            <span class="icono-ventaja" role="img" aria-label="Ícono de teléfono">📞</span>
+            <h3>Acompañamiento 24/7</h3>
+            <p>Antes, durante y después de tu viaje, estamos disponibles para lo que necesités.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
   </main>
 
-  <!-- Pie de página -->
+
+  <!-- Footer vacío, lo completamos en el siguiente step -->
   <footer>
   </footer>
 
