@@ -355,3 +355,41 @@ body.modo-oscuro {
   outline: 2px solid var(--color-primario-oscuro);
   outline-offset: 4px;
 }
+
+/* =============================================
+   GALERÍA — Cuadrícula de fotos
+   También uso CSS Grid pero con un diseño
+   más variado que el de los destinos
+============================================= */
+.seccion-galeria {
+  padding: var(--espaciado-seccion) 0;
+  background-color: var(--color-fondo);
+}
+
+/* Grid de 4 columnas, las fotos se acomodan solas */
+.grid-galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Cada foto de la galería */
+.foto-galeria {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;       /* Recorta sin distorsionar */
+  border-radius: var(--radio-borde);
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+/* Al pasar el mouse la foto se agranda un poco y se aclara */
+.foto-galeria:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+/* La primera foto ocupa dos columnas — da variedad visual */
+.foto-galeria:first-child {
+  grid-column: span 2;
+}
